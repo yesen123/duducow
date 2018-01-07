@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.duducow.mapper.SysOperateMapper" >
+  <resultMap id="BaseResultMap" type="com.duducow.core.model.SysOperate" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="operate_name" property="operateName" jdbcType="VARCHAR" />
+    <result column="permission_code" property="permissionCode" jdbcType="VARCHAR" />
+    <result column="disabled" property="disabled" jdbcType="DECIMAL" />
+    <result column="del_flag" property="delFlag" jdbcType="DECIMAL" />
+    <result column="pid" property="pid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, operate_name, permission_code, disabled, del_flag, pid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_sys_operate
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_sys_operate
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.duducow.core.model.SysOperate" >
+    insert into t_sys_operate (id, operate_name, permission_code, 
+      disabled, del_flag, pid
+      )
+    values (#{id,jdbcType=VARCHAR}, #{operateName,jdbcType=VARCHAR}, #{permissionCode,jdbcType=VARCHAR}, 
+      #{disabled,jdbcType=DECIMAL}, #{delFlag,jdbcType=DECIMAL}, #{pid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.duducow.core.model.SysOperate" >
+    insert into t_sys_operate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="operateName != null" >
+        operate_name,
+      </if>
+      <if test="permissionCode != null" >
+        permission_code,
+      </if>
+      <if test="disabled != null" >
+        disabled,
+      </if>
+      <if test="delFlag != null" >
+        del_flag,
+      </if>
+      <if test="pid != null" >
+        pid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="operateName != null" >
+        #{operateName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionCode != null" >
+        #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null" >
+        #{disabled,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        #{delFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null" >
+        #{pid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.duducow.core.model.SysOperate" >
+    update t_sys_operate
+    <set >
+      <if test="operateName != null" >
+        operate_name = #{operateName,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionCode != null" >
+        permission_code = #{permissionCode,jdbcType=VARCHAR},
+      </if>
+      <if test="disabled != null" >
+        disabled = #{disabled,jdbcType=DECIMAL},
+      </if>
+      <if test="delFlag != null" >
+        del_flag = #{delFlag,jdbcType=DECIMAL},
+      </if>
+      <if test="pid != null" >
+        pid = #{pid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.duducow.core.model.SysOperate" >
+    update t_sys_operate
+    set operate_name = #{operateName,jdbcType=VARCHAR},
+      permission_code = #{permissionCode,jdbcType=VARCHAR},
+      disabled = #{disabled,jdbcType=DECIMAL},
+      del_flag = #{delFlag,jdbcType=DECIMAL},
+      pid = #{pid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

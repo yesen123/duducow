@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: duducow-console-webapp Maven Webapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: yesen
+Implementation-Vendor-Id: com.duducow
+Build-Jdk: 1.8.0_101
+Implementation-URL: http://projects.spring.io/spring-boot/spring-boot-
+ starter-parent/duducow/duducow-console-webapp/
+Created-By: Maven Integration for Eclipse
+
