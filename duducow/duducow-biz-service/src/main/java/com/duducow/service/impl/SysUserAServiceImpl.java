@@ -16,7 +16,7 @@ public class SysUserAServiceImpl implements SysUserAService {
 	@Autowired
 	private SysUserAMapper userMapper;
 	
-	@Override
+	
 	@Transactional
 	public int insertUser(SysUserA user) {
 		user.setId(UUID.randomUUID().toString());
